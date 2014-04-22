@@ -13,6 +13,8 @@ public class RowItem {
 		this.imageId = imageId;
 		this.title = title;
 		this.desc = desc;
+		
+		/*checking for source tree*/
 	}
 
 	public String getDesc() {

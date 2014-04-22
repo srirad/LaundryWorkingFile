@@ -42,12 +42,9 @@ public class ModelReceipt {
 		return totalReceiptPrice;
 	}
 	
-//	 ArrayList<ModelLaundryItem> itemArray  = new ArrayList<ModelLaundryItem>();
-//	 
-//	 public void addItemToReceipt(ModelLaundryItem) aLItem {
-//		 
-//		 
-//	 }
-//	
-	
+	public ArrayList<ModelLaundryItem> getAllItem() {
+		
+		return launItemArr;
+	}
+		
 }

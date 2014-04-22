@@ -163,6 +163,11 @@ public class ModelLaundryItem {
 		otherArray.add(otherMdl);
 	}
 
+	public int getTotalQty() {
+
+		return qty;
+	}
+
 	public float getTotalPrice() {
 		itemTotalPrice = 0;
 		switch (cleaningType) {
@@ -186,20 +191,52 @@ public class ModelLaundryItem {
 			break;
 		}
 
-	this.calXtraPrice(sizeArray);
-	this.calXtraPrice(materialArray);
-	this.calXtraPrice(addOnArray);
-	this.calXtraPrice(otherArray);
-	
+		this.calXtraPrice(sizeArray);
+		this.calXtraPrice(materialArray);
+		this.calXtraPrice(addOnArray);
+		this.calXtraPrice(otherArray);
 
-		return (qty *itemTotalPrice);
+		return (qty * itemTotalPrice);
 	}
 
-	/*public String getExtraName() {
-		
-		
-	}*/
 	
+	public String getAllExtraString() {
+		String allExtraStr = "";
+
+		for (int i = 0; i < sizeArray.size(); i++) {
+			if (sizeArray.get(i).isSelected()) {
+			allExtraStr = allExtraStr + " /" + sizeArray.get(i).name;
+			// allExtraStr
+			}
+		}
+
+		for (int i = 0; i < materialArray.size(); i++) {
+			if (materialArray.get(i).isSelected()) {
+			allExtraStr = allExtraStr + " /" + materialArray.get(i).name;
+			}
+			// allExtraStr
+		}
+
+		return allExtraStr;
+	}
+	
+	public void setAllNotSel() {
+		
+		for (int i = 0; i < materialArray.size();i++) {
+			materialArray.get(i).selected = false;
+		}
+		for (int i = 0; i < sizeArray.size();i++) {
+			sizeArray.get(i).selected = false;
+		}
+		for (int i = 0; i < otherArray.size();i++) {
+			otherArray.get(i).selected = false;
+		}
+		for (int i = 0; i < addOnArray.size();i++) {
+			addOnArray.get(i).selected = false;
+		}
+		
+	}
+
 	public void calXtraPrice(ArrayList<ModelExtra> aXtraArr) {
 
 		for (int i = 0; i < aXtraArr.size(); i++) {

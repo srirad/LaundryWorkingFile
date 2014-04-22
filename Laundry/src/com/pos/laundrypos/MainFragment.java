@@ -72,7 +72,7 @@ public class MainFragment extends Fragment {
 			ArrayList<ModelExtra> otherArr) {
 
 		ArrayList<ModelExtra> sizeArrFil = new ArrayList<ModelExtra>();
-		int totalSize = sizeArr.size();
+		
 		for (int i = 0; i < sizeArr.size(); i++) {
 
 			if (sizeArr.get(i) != null) {
@@ -80,9 +80,18 @@ public class MainFragment extends Fragment {
 			}
 		}
 
-		ArrayAdapter<ModelExtra> sizeAdapter = new InteractiveArrayAdapter(
+		ArrayAdapter<ModelExtra> sizeAdapter = new ExtraListAdapter(
 				getActivity(), sizeArrFil);
 		sizeListView.setAdapter(sizeAdapter);
+		ArrayAdapter<ModelExtra> materialAdapter = new ExtraListAdapter(
+				getActivity(), materialArr);
+		materialListView.setAdapter(materialAdapter);
+		ArrayAdapter<ModelExtra> addOnAdapter = new ExtraListAdapter(
+				getActivity(), addOnArr);
+		addOnListView.setAdapter(addOnAdapter);
+		ArrayAdapter<ModelExtra> otherAdapter = new ExtraListAdapter(
+				getActivity(), otherArr);
+		otherListView.setAdapter(otherAdapter);
 	}
 
 	private void chooseLadies() {

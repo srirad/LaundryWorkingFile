@@ -216,14 +216,14 @@ public final class R {
         public static final int textlines=0x7f02009d;
     }
     public static final class id {
-        public static final int ButtonTest=0x7f09005d;
+        public static final int ButtonTest=0x7f090060;
         public static final int CashierId=0x7f09004a;
         public static final int EditText01=0x7f090050;
         public static final int QuantityId=0x7f090043;
         public static final int TextView01=0x7f090018;
         public static final int TextView02=0x7f090019;
         public static final int TextView03=0x7f09001a;
-        public static final int action_settings=0x7f090060;
+        public static final int action_settings=0x7f090063;
         public static final int addOnLabel=0x7f09003f;
         public static final int addOnLinear=0x7f09003e;
         public static final int addOnList=0x7f09002e;
@@ -265,8 +265,11 @@ public final class R {
         public static final int houseTab=0x7f090008;
         public static final int icon=0x7f09004c;
         public static final int imageView1=0x7f090010;
-        public static final int item_image=0x7f09005e;
-        public static final int item_text=0x7f09005f;
+        public static final int itemName=0x7f09005e;
+        public static final int itemPrice=0x7f09005f;
+        public static final int itemQty=0x7f09005d;
+        public static final int item_image=0x7f090061;
+        public static final int item_text=0x7f090062;
         public static final int itemsLinearLayout=0x7f090035;
         public static final int itemsScrollView=0x7f090027;
         public static final int label=0x7f090030;
@@ -328,11 +331,12 @@ public final class R {
         public static final int menu_list_item=0x7f03000a;
         public static final int objects_list_item=0x7f03000b;
         public static final int ordermainpage=0x7f03000c;
-        public static final int row=0x7f03000d;
-        public static final int row_grid=0x7f03000e;
-        public static final int rowbuttonlayout=0x7f03000f;
-        public static final int selectableitem=0x7f030010;
-        public static final int type_details_item=0x7f030011;
+        public static final int receiptlistrow=0x7f03000d;
+        public static final int row=0x7f03000e;
+        public static final int row_grid=0x7f03000f;
+        public static final int rowbuttonlayout=0x7f030010;
+        public static final int selectableitem=0x7f030011;
+        public static final int type_details_item=0x7f030012;
     }
     public static final class menu {
         public static final int main=0x7f080000;

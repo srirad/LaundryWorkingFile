@@ -47,6 +47,7 @@ public class MainActivity_POS extends Activity {
 
 	ArrayList<Item> currentArray = new ArrayList<Item>();
 	static ModelLaundryItem currentItem;
+	static ModelLaundryItem prevItem;
 	static ModelReceipt receipt = new ModelReceipt();
 
 	ArrayList<String> currentMaterials = new ArrayList<String>();
@@ -59,8 +60,6 @@ public class MainActivity_POS extends Activity {
 	final int LADIES_TAB = 0;
 
 	static ArrayList<ModelLaundryItem> ladiesArray = new ArrayList<ModelLaundryItem>();
-	ArrayAdapter<String> materialAdapter;
-	ListView materialListView;
 
 	final int MEN_TAB = 1;
 	ArrayList<ModelLaundryItem> menArray = new ArrayList<ModelLaundryItem>();
@@ -74,8 +73,6 @@ public class MainActivity_POS extends Activity {
 
 	int selectedTab = LADIES_TAB;
 
-	ListView sizeListView;
-
 	int totalLadItem = 0;
 
 	static String currentItemStr = "";
@@ -87,6 +84,9 @@ public class MainActivity_POS extends Activity {
 
 	MainFragment fragment;
 	private MyTouchListener mOnTouchListener;
+
+	ArrayAdapter<String> receiptAdapter;
+	ListView receiptListView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -100,11 +100,6 @@ public class MainActivity_POS extends Activity {
 		fragmentManager.beginTransaction()
 				.replace(R.id.content_frame, fragment).commit();
 
-		materialListView = (ListView) findViewById(R.id.materialList);
-		sizeListView = (ListView) findViewById(R.id.sizeList);
-		otherListView = (ListView) findViewById(R.id.othersList);
-		addOnListView = (ListView) findViewById(R.id.addOnList);
-
 		populateMen();
 		populateLadies();
 		populateOthers();
@@ -116,6 +111,14 @@ public class MainActivity_POS extends Activity {
 
 		View view = findViewById(R.id.objects_drawer);
 		view.setOnTouchListener(mOnTouchListener);
+
+		receiptListView = (ListView) findViewById(R.id.receiptItemListId);
+		ArrayList<ModelExtra> itemList = new ArrayList<ModelExtra>();
+		currentItem = new ModelLaundryItem(-1, "");
+		itemList = getExtraModel();
+		ArrayAdapter<ModelLaundryItem> receiptAdapter = new ReceiptListAdapter(
+				this, receipt.getAllItem());
+		receiptListView.setAdapter(receiptAdapter);
 
 	}
 
@@ -588,6 +591,13 @@ public class MainActivity_POS extends Activity {
 
 	public void selectItem(View view) {
 		itemSelected = true;
+		prevItem = currentItem;
+		if (prevItem != null) {
+		
+		
+		prevItem.setAllNotSel();
+		
+		}
 		if (selectedTab == LADIES_TAB) {
 			for (int i = 0; i < ladiesArray.size(); i++) {
 				ModelLaundryItem aItem = ladiesArray.get(i);
@@ -684,13 +694,7 @@ public class MainActivity_POS extends Activity {
 	}
 
 	public void selectMen(View view) {
-		// this.populateColors2();
-		// ColorGridViewAdapter colorGridAdapter2= new
-		// ColorGridViewAdapter(this,
-		// R.layout.color_grid, colorArray);
-		// fragment.cgv.setAdapter(colorGridAdapter2);
-		// fragment.notifyDataSetChanged();
-
+	
 		itemSelected = false;
 		System.out.println("Clicked GentleMen");
 		selectedTab = MEN_TAB;
@@ -840,28 +844,25 @@ public class MainActivity_POS extends Activity {
 
 	public void deleteCurrentItem(View view) {
 		currentItem = new ModelLaundryItem(-1, "");
-		updateTrackingText();
+		
 
 	}
 
 	public void addItemToReceipt(View view) {
 
 		ModelLaundryItem aTempItem = currentItem;
+		if(currentItem.itemName != "") {
+		
 		receipt.addItemToReceipt(aTempItem);
-		updateTrackingText();
+		ArrayAdapter<ModelLaundryItem> receiptAdapter = new ReceiptListAdapter(
+				this, receipt.getAllItem());
+		receiptListView.setAdapter(receiptAdapter);
+		
+		}
 		currentItem = new ModelLaundryItem(-1, "");
 	}
 
-	public static void updateTrackingText() {
-		/*
-		 * currentItemStr = currentItem.itemName +
-		 * Float.toString(currentItem.getTotalPrice()) + "\n BILL :" +
-		 * Float.toString(receipt.getTotalPrice()) + "\n Total Items :" +
-		 * Integer.toString(receipt.launItemArr.size());
-		 * 
-		 * itemTrackText.setText(currentItemStr);
-		 */
-	}
+
 
 	class MyTouchListener implements OnTouchListener {
 		@Override
@@ -890,6 +891,12 @@ public class MainActivity_POS extends Activity {
 			}
 			return true;
 		}
+	}
+	
+	public void  setAllExtraNotSel() {
+		
+		
+		
 	}
 
 }

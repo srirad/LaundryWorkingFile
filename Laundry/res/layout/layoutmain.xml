@@ -96,11 +96,10 @@
 
         <ListView
             android:id="@+id/receiptItemListId"
-            style="@style/styleListView"
-            android:layout_below="@+id/collectionId"
-            android:layout_width="@dimen/serBtnWi"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/extraListHe"
-            android:background="@color/red" >
+            android:layout_below="@+id/collectionId"
+            android:layout_marginTop="50dp" >
         </ListView>
     </RelativeLayout>
 
