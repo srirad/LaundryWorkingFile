@@ -1,0 +1,10 @@
+    <ImageView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/color_image"
+        android:layout_width="@dimen/colorGridWi"
+        android:layout_height="@dimen/colorGridWi"
+        android:layout_marginRight="3dp"
+         >
+    </ImageView>
+
+

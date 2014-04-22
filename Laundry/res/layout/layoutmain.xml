@@ -1,0 +1,107 @@
+<!-- A DrawerLayout is intended to be used as the top-level content view using match_parent for both width and height to consume the full space available. -->
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ListView
+        android:id="@+id/menu_drawer"
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@drawable/bg"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp" />
+
+    <RelativeLayout
+        android:id="@+id/objects_drawer"
+        android:layout_width="400dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="@drawable/custom_receiptborder" >
+
+        <TextView
+            android:id="@+id/customerId"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Customer: Srini Vas" />
+
+        <TextView
+            android:id="@+id/nricId"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/customerId"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="1dp"
+            android:text="NRIC: XXXXXX83W" />
+
+        <TextView
+            android:id="@+id/receiptNumId"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/nricId"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="1dp"
+            android:text="Receipt No: RCT140108-001" />
+
+        <TextView
+            android:id="@+id/collectionId"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/receiptNumId"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="1dp"
+            android:text="Collection Date: 20-03-2014" />
+
+        <TextView
+            android:id="@+id/dateId"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="10dp"
+            android:text="Date: 16/03/2014" />
+
+        <TextView
+            android:id="@+id/timeId"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/dateId"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="1dp"
+            android:text="Time: 13:25" />
+
+        <TextView
+            android:id="@+id/CashierId"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/timeId"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="1dp"
+            android:text="Cashier:Amy" />
+
+        <ListView
+            android:id="@+id/receiptItemListId"
+            style="@style/styleListView"
+            android:layout_below="@+id/collectionId"
+            android:layout_width="@dimen/serBtnWi"
+            android:layout_height="@dimen/extraListHe"
+            android:background="@color/red" >
+        </ListView>
+    </RelativeLayout>
+
+</android.support.v4.widget.DrawerLayout>

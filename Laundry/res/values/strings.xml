@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LaundyPos</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="men_tab_text">GENTLEMEN</string>
+    <string name="ladies_tab_text">LADIES</string>
+    <string name="others_tab_text">OTHERS</string>
+    <string name="house_tab_text">HOUSEHOLD</string>
+    
+    <string name="tender_button_text">Tender</string>
+    <string name="remarks_box_text">Remarks</string>
+    <string name="normal_button_text">Normal</string>
+    <string name="express1_button_text">Express 25%</string>
+    <string name="express2_button_text">Express 50%</string>
+    <string name="super_button_text">Super Express</string>
+    <string name="opentray_button_text">Open Tray</string>
+    <string name="collection_button_text">Collection</string>
+    <string name="customer_button_text">Customer</string>
+    <string name="discount_button_text">Discount</string>
+    
+    <!-- SERVICES STRING -->
+    <string name="wet_wash_text">WET WASH</string>
+    <string name="dry_wash_text">DRY CLEAN</string>
+    <string name="hand_wash_text">HAND WASH</string>
+    <string name="press_wash_text">PRESSING ONLY</string>
+
+</resources>

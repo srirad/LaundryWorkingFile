@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- When the button is selected -->
+    <item android:state_activated="true"><shape android:shape="rectangle">
+            <gradient android:angle="-90" android:endColor="@color/systemColorLight" android:startColor="@color/systemColorLight" />
+        </shape></item>
+
+    <!-- normal state of the button -->
+    <item><shape android:shape="rectangle">
+            <gradient android:angle="-90" android:endColor="@color/systemColor" android:startColor="@color/systemColor" />
+        </shape></item>
+
+</selector>

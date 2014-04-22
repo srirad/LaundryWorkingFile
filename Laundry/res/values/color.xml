@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="red">#c6360a</color>
+    <color name="green">#33ff33</color>
+    <color name="blue">#003366</color>
+    <color name="grey">#888888</color>
+    <color name="brown">#330000</color>
+    <color name="lblue">#3399ff</color>
+    <color name="yellow">#FFFF33</color>
+    <color name="orange">#FF6600</color>
+    <color name="ladiesColor">#D56D60 </color>
+    <color name="menColor">#85C57B</color>
+    <color name="othersColor">#FFCA2E </color>
+    <color name="houseColor">#E8C581 </color>
+    <color name="systemColor">#305478 </color>
+    <color name="systemColorLight">#009ACC </color>
+
+</resources>

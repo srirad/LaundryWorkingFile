@@ -1,0 +1,345 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <!-- TOP LEVEL BUTTONS -->
+
+        <Button
+            android:id="@+id/menTab"
+            style="@style/styleServiceMen"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:onClick="selectMen"
+            android:text="@string/men_tab_text"
+            android:textSize="9sp" />
+
+        <Button
+            android:id="@+id/ladiesTab"
+            style="@style/styleServiceLadies"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:onClick="selectLadies"
+            android:text="@string/ladies_tab_text"
+            android:textSize="9sp" />
+
+        <Button
+            android:id="@+id/othersTab"
+            style="@style/styleServiceOthers"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:onClick="selectOthers"
+            android:text="@string/others_tab_text"
+            android:textSize="9sp" />
+
+        <Button
+            android:id="@+id/houseTab"
+            style="@style/styleServiceHouse"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:onClick="selectHouse"
+            android:text="@string/house_tab_text"
+            android:textSize="9sp" />
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/clothTypesScrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp" >
+
+        <!-- DYNAMIC ITEMS -->
+
+        <LinearLayout
+            android:id="@+id/clothLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/l_tabbg"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <RadioGroup
+        android:id="@+id/washType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/dryWash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/dry_wash_text"
+            android:textSize="9sp" />
+
+        <RadioButton
+            android:id="@+id/wetWash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/wet_wash_text"
+            android:textSize="9sp" />
+
+        <RadioButton
+            android:id="@+id/handWash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/hand_wash_text"
+            android:textSize="9sp" />
+
+        <RadioButton
+            android:id="@+id/pressWash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/press_wash_text"
+            android:textSize="9sp" />
+    </RadioGroup>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <!-- Other options -->
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/man_f_b" />
+
+        <ListView
+            android:id="@+id/sizeView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/imageView1" >
+        </ListView>
+
+        <ListView
+            android:id="@+id/materialView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/sizeView" >
+        </ListView>
+
+        <ListView
+            android:id="@+id/addOnView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="80dp"
+            android:layout_toRightOf="@+id/imageView1" >
+        </ListView>
+
+        <ListView
+            android:id="@+id/othersView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="80dp"
+            android:layout_toRightOf="@+id/addOnView" >
+        </ListView>
+
+        <GridView
+            android:id="@+id/colorGrid"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="20dp"
+            android:numColumns="3"
+            android:textSize="9sp" >
+
+            <!-- Colors dynamic -->
+        </GridView>
+
+        <EditText
+            android:id="@+id/brandNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/colorGrid"
+            android:layout_below="@+id/colorGrid"
+            android:ems="10"
+            android:hint="Brand"
+            android:inputType="textMultiLine"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/sizeView"
+            android:layout_alignLeft="@+id/sizeView"
+            android:text="Size"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/materialView"
+            android:layout_alignLeft="@+id/materialView"
+            android:text="Material"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/addOnView"
+            android:layout_alignLeft="@+id/addOnView"
+            android:text="AddOn"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/TextView03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/othersView"
+            android:layout_alignLeft="@+id/othersView"
+            android:text="Others"
+            android:textSize="9sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <!-- bottomui -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/remarksBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/remarks_box_text"
+                    android:inputType="textMultiLine"
+                    android:textSize="9sp" >
+
+                    <requestFocus android:layout_width="match_parent" />
+                </EditText>
+
+                <RadioGroup
+                    android:id="@+id/deliveryType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/normalDelivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/normal_button_text"
+                        android:textSize="9sp" />
+
+                    <RadioButton
+                        android:id="@+id/express1Delivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/express1_button_text"
+                        android:textSize="9sp" />
+
+                    <RadioButton
+                        android:id="@+id/express2Delivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/express2_button_text"
+                        android:textSize="9sp" />
+
+                    <RadioButton
+                        android:id="@+id/superDelivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/super_button_text"
+                        android:textSize="9sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/openTrayButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="selectMen"
+                    android:text="@string/opentray_button_text"
+                    android:textSize="9sp" />
+
+                <Button
+                    android:id="@+id/collectionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="selectMen"
+                    android:text="@string/collection_button_text"
+                    android:textSize="9sp" />
+
+                <Button
+                    android:id="@+id/customerButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="selectMen"
+                    android:text="@string/customer_button_text"
+                    android:textSize="9sp" />
+
+                <Button
+                    android:id="@+id/discountButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="selectMen"
+                    android:text="@string/discount_button_text"
+                    android:textSize="9sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/tenderButton"
+            android:layout_width="90dp"
+            android:layout_height="80dp"
+            android:onClick="selectTender"
+            android:text="@string/tender_button_text"
+            android:textSize="9sp" />
+    </LinearLayout>
+
+</LinearLayout>

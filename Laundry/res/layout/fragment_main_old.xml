@@ -1,0 +1,320 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg" 
+
+    >
+
+    <!-- TOP LEVEL BUTTONS -->
+
+    <Button
+        android:id="@+id/menTab"
+        style="@style/styleServiceMen"
+        android:layout_width="@dimen/catBtnWi"
+        android:layout_height="@dimen/catBtnHe"
+        android:layout_alignBaseline="@+id/ladiesTab"
+        android:layout_alignBottom="@+id/ladiesTab"
+        android:layout_toRightOf="@+id/ladiesTab"
+        android:onClick="selectMen"
+        android:text="@string/men_tab_text"
+        android:textSize="9sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/houseTab"
+        style="@style/styleServiceHouse"
+        android:layout_width="@dimen/catBtnWi"
+        android:layout_height="@dimen/catBtnHe"
+        android:layout_alignBaseline="@+id/menTab"
+        android:layout_alignBottom="@+id/menTab"
+        android:layout_toRightOf="@+id/menTab"
+        android:onClick="selectHouse"
+        android:text="@string/house_tab_text"
+        android:textSize="9sp" />
+
+    <Button
+        android:id="@+id/othersTab"
+        style="@style/styleServiceOthers"
+        android:layout_width="@dimen/catBtnWi"
+        android:layout_height="@dimen/catBtnHe"
+        android:layout_alignBaseline="@+id/houseTab"
+        android:layout_alignBottom="@+id/houseTab"
+        android:layout_toRightOf="@+id/houseTab"
+        android:onClick="selectOthers"
+        android:text="@string/others_tab_text"
+        android:textSize="9sp" />
+
+    <Button
+        android:id="@+id/ladiesTab"
+        style="@style/styleServiceLadies"
+        android:layout_width="@dimen/catBtnWi"
+        android:layout_height="@dimen/catBtnHe"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:onClick="selectLadies"
+        android:text="@string/ladies_tab_text"
+        android:textSize="9sp" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutWBg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/menTab"
+        android:background="@drawable/l_tabbg" >
+
+        <HorizontalScrollView
+            android:id="@+id/itemsScrollView"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="5dp" >
+
+            <LinearLayout
+                android:id="@+id/itemsLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <Button
+            android:id="@+id/dryCleanType"
+            style="@style/styleLaundryTypeBtn"
+            android:layout_width="@dimen/serBtnWi"
+            android:layout_height="@dimen/serBtnHe"
+            android:layout_below="@+id/itemsScrollView"
+            android:layout_marginLeft="5dp"
+            android:onClick="selectService"
+            android:text="@string/dry_wash_text" />
+
+        <Button
+            android:id="@+id/wetCleanType"
+            style="@style/styleLaundryTypeBtn"
+            android:layout_width="@dimen/serBtnWi"
+            android:layout_height="@dimen/serBtnHe"
+            android:layout_below="@+id/itemsScrollView"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/dryCleanType"
+            android:onClick="selectService"
+            android:text="@string/wet_wash_text" />
+
+        <Button
+            android:id="@+id/handCleanType"
+            style="@style/styleLaundryTypeBtn"
+            android:layout_width="@dimen/serBtnWi"
+            android:layout_height="@dimen/serBtnHe"
+            android:layout_below="@+id/itemsScrollView"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/wetCleanType"
+            android:onClick="selectService"
+            android:text="@string/hand_wash_text" />
+
+        <Button
+            android:id="@+id/pressCleanType"
+            style="@style/styleLaundryTypeBtn"
+            android:layout_width="@dimen/serBtnWi"
+            android:layout_height="@dimen/serBtnHe"
+            android:layout_below="@+id/itemsScrollView"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/handCleanType"
+            android:onClick="selectService"
+            android:text="@string/press_wash_text" />
+
+        <LinearLayout
+            android:id="@+id/sizeLinear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/wetCleanType"
+            android:layout_below="@+id/wetCleanType"
+            android:layout_marginTop="20dp"
+            android:layout_toLeftOf="@+id/handCleanType"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/sizeLabel"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="SIZE"
+                android:textColor="@color/black"
+                android:textSize="15sp" >
+            </TextView>
+
+            <ListView
+                android:id="@+id/sizeList"
+                style="@style/styleListView"
+                android:layout_width="@dimen/serBtnWi"
+                android:layout_height="100dp" >
+            </ListView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/materialLinear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/wetCleanType"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/sizeLinear"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/materialLabel"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="MATERIAL"
+                android:textColor="@color/black"
+                android:textSize="15sp" >
+            </TextView>
+
+            <ListView
+                android:id="@+id/materialList"
+                style="@style/styleListView"
+                android:layout_width="@dimen/serBtnWi"
+                android:layout_height="100dp" >
+            </ListView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/addOnLinear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/sizeLinear"
+            android:layout_below="@+id/sizeLinear"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <!-- android:dividerHeight="10.0sp"     android:divider="@drawable/custom_btn_listview" -->
+
+            <TextView
+                android:id="@+id/addOnLabel"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_alignLeft="@+id/addOnList"
+                android:layout_alignTop="@+id/addOnLinear"
+                android:layout_toLeftOf="@+id/addOnLinear"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="ADD ON"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <ListView
+                android:id="@+id/addOnList"
+                style="@style/styleListView"
+                android:layout_width="@dimen/serBtnWi"
+                android:layout_height="100dp"
+                android:layout_below="@+id/addOnLabel"
+                android:layout_toLeftOf="@+id/addOnLinear" >
+            </ListView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/othersLinear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/materialLinear"
+            android:layout_below="@+id/sizeLinear"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <!-- android:dividerHeight="10.0sp"     android:divider="@drawable/custom_btn_listview" -->
+
+            <TextView
+                android:id="@+id/othersLabel"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_alignLeft="@+id/addOnList"
+                android:layout_alignTop="@+id/addOnLinear"
+                android:layout_toLeftOf="@+id/addOnLinear"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="OTHERS"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <ListView
+                android:id="@+id/othersList"
+                style="@style/styleListView"
+                android:layout_width="@dimen/serBtnWi"
+                android:layout_height="100dp"
+                android:layout_below="@+id/addOnLabel"
+                android:layout_toLeftOf="@+id/addOnLinear" >
+            </ListView>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/brandName"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_alignLeft="@+id/colorGrid"
+            android:layout_alignRight="@+id/colorGrid"
+            android:layout_alignTop="@+id/materialLinear"
+            android:layout_marginBottom="10dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:hint="Brand"
+            android:maxLines="1"
+            android:textSize="12sp" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/customPriceId"
+            android:layout_width="160dp"
+            android:layout_height="25dp"
+            android:layout_alignLeft="@+id/brandName"
+            android:layout_below="@+id/QuantityId"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:hint="CUSTOM PRICE"
+          
+            android:maxLines="1"
+            android:textSize="12sp"
+            android:inputType="numberDecimal"
+             >
+        </EditText>
+
+        <EditText
+            android:id="@+id/QuantityId"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_alignLeft="@+id/colorGrid"
+            android:layout_below="@+id/colorGrid"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:hint="QUANTITY"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textSize="12sp" 
+            
+            >
+        </EditText>
+
+        <GridView
+            android:id="@+id/colorGrid"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_alignRight="@+id/pressCleanType"
+            android:layout_below="@+id/brandName"
+            android:layout_marginRight="32dp"
+            android:numColumns="4"
+            android:textSize="9sp" >
+        </GridView>
+    </RelativeLayout>
+
+</RelativeLayout>
