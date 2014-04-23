@@ -267,7 +267,7 @@
             </EditText>
 
             <EditText
-                android:id="@+id/EditText01"
+                android:id="@+id/trackText"
                 android:layout_width="130dp"
                 android:layout_height="80dp"
                 android:layout_alignBottom="@+id/QuantityId"

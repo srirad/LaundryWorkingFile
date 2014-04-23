@@ -23,13 +23,6 @@ import com.pos.laundrypos.ExtraListAdapter.ViewHolder;
  */
 public class ReceiptListAdapter extends ArrayAdapter<ModelLaundryItem> {
 
-	static class ViewHolder {
-
-		protected TextView qty;
-		protected TextView text;
-		protected TextView price;
-	}
-
 	private final Activity context;
 
 	private final List<ModelLaundryItem> list;
@@ -42,36 +35,51 @@ public class ReceiptListAdapter extends ArrayAdapter<ModelLaundryItem> {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		View view = null;
-		if (convertView == null) {
+		View view = convertView;
+
+		if (view == null) {
 			LayoutInflater inflator = context.getLayoutInflater();
 			view = inflator.inflate(R.layout.receiptlistrow, null);
-			view.setMinimumHeight(50);
-			final ViewHolder viewHolder = new ViewHolder();
-			viewHolder.qty = (TextView) view.findViewById(R.id.itemQty);
-			viewHolder.text = (TextView) view.findViewById(R.id.itemName);
-			viewHolder.price = (TextView) view.findViewById(R.id.itemPrice);
+		}
+		ModelLaundryItem aItem = list.get(position);
 
-			String itemName = list.get(position).itemName
-					+ list.get(position).getAllExtraString();
-
-			String itemPrice = "$ "
-					+ String.valueOf(list.get(position).getTotalPrice());
-			String itemQty = String.valueOf(list.get(position).getTotalQty());
-			if (itemName != "") {
-				viewHolder.text.setText(itemName);
-				viewHolder.price.setText(itemPrice);
-				viewHolder.qty.setText(itemQty);
-				viewHolder.text.setMinimumHeight(30);
+		if (aItem != null && view != null) {
+			TextView qty = (TextView) view.findViewById(R.id.itemQty);
+			TextView name = (TextView) view.findViewById(R.id.itemName);
+			TextView price = (TextView) view.findViewById(R.id.itemPrice);
+			
+			if (name != null) {
+				name.setText(aItem.itemName);
+			}
+			if (price != null) {
+				 String itemPrice = "$ " + String.valueOf(list.get(position).getTotalQty());
+				qty.setText(itemPrice);
+			}
+			if (price != null) {
+				 String itemPrice = "$ " + String.valueOf(list.get(position).getTotalPrice());
+				 qty.setText(itemPrice);
 			}
 
-			view.setTag(viewHolder);
-
-		} else {
-			view = convertView;
-
+			/*
+			 * viewHolder = (ViewHolder) convertView.getTag(); String itemName =
+			 * list.get(position).itemName +
+			 * list.get(position).getAllExtraString();
+			 * 
+			 * String itemPrice = "$ " +
+			 * String.valueOf(list.get(position).getTotalPrice()); String
+			 * itemQty = String.valueOf(list.get(position).getTotalQty());
+			 * 
+			 * viewHolder.text.setText(itemName);
+			 * viewHolder.price.setText(itemPrice);
+			 * viewHolder.qty.setText(itemQty);
+			 * 
+			 * viewHolder.text.setHeight(40);
+			 * viewHolder.text.setMinimumHeight(130);
+			 * viewHolder.price.setText(itemPrice);
+			 */
 		}
 
 		return view;
 	}
+
 }

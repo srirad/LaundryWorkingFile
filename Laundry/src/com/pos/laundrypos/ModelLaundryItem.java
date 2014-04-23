@@ -214,7 +214,18 @@ public class ModelLaundryItem {
 			if (materialArray.get(i).isSelected()) {
 			allExtraStr = allExtraStr + " /" + materialArray.get(i).name;
 			}
-			// allExtraStr
+		}
+		
+		for (int i = 0; i < addOnArray.size(); i++) {
+			if (addOnArray.get(i).isSelected()) {
+			allExtraStr = allExtraStr + " /" + addOnArray.get(i).name;
+			}
+		}
+		
+		for (int i = 0; i < otherArray.size(); i++) {
+			if (otherArray.get(i).isSelected()) {
+			allExtraStr = allExtraStr + " /" + otherArray.get(i).name;
+			}
 		}
 
 		return allExtraStr;

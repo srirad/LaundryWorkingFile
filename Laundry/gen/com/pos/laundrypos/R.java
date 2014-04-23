@@ -218,7 +218,6 @@ public final class R {
     public static final class id {
         public static final int ButtonTest=0x7f090060;
         public static final int CashierId=0x7f09004a;
-        public static final int EditText01=0x7f090050;
         public static final int QuantityId=0x7f090043;
         public static final int TextView01=0x7f090018;
         public static final int TextView02=0x7f090019;
@@ -311,6 +310,7 @@ public final class R {
         public static final int textView1=0x7f090017;
         public static final int timeId=0x7f090049;
         public static final int title=0x7f09004d;
+        public static final int trackText=0x7f090050;
         public static final int voidId=0x7f090059;
         public static final int washType=0x7f09000b;
         public static final int wetCleanType=0x7f090037;

@@ -19,6 +19,7 @@
         android:id="@+id/itemName"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:minHeight="50dp"
         android:layout_marginLeft="7dp"
         android:layout_toRightOf="@+id/itemQty"
         android:clickable="true"

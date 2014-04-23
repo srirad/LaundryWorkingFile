@@ -25,7 +25,7 @@ public class ModelReceipt {
 		launItemArr.remove(aVal);
 	}
 	
-	public void addItemToReceipt(ModelLaundryItem aItem) {
+	public void addItemToRec(ModelLaundryItem aItem) {
 		launItemArr.add(aItem);
 	} 
 	

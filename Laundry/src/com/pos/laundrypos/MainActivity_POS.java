@@ -54,19 +54,19 @@ public class MainActivity_POS extends Activity {
 	int currentOrderNum = -1;
 	ColorGridViewAdapter customColorGridAdapter;
 
-	final int HOUSE_TAB = 3;
 	ArrayList<ModelLaundryItem> houseArray = new ArrayList<ModelLaundryItem>();
-
-	final int LADIES_TAB = 0;
 
 	static ArrayList<ModelLaundryItem> ladiesArray = new ArrayList<ModelLaundryItem>();
 
+	final int LADIES_TAB = 0;
 	final int MEN_TAB = 1;
+	final int OTHERS_TAB = 2;
+	final int HOUSE_TAB = 3;
+
 	ArrayList<ModelLaundryItem> menArray = new ArrayList<ModelLaundryItem>();
 
 	int mTabSelect = 0;
 
-	final int OTHERS_TAB = 2;
 	ArrayList<ModelLaundryItem> othersArray = new ArrayList<ModelLaundryItem>();
 	ListView otherListView;
 	List<RowItem> rowItems;
@@ -85,7 +85,7 @@ public class MainActivity_POS extends Activity {
 	MainFragment fragment;
 	private MyTouchListener mOnTouchListener;
 
-	ArrayAdapter<String> receiptAdapter;
+	ArrayAdapter<ModelLaundryItem> receiptAdapter;
 	ListView receiptListView;
 
 	@Override
@@ -113,12 +113,12 @@ public class MainActivity_POS extends Activity {
 		view.setOnTouchListener(mOnTouchListener);
 
 		receiptListView = (ListView) findViewById(R.id.receiptItemListId);
-		ArrayList<ModelExtra> itemList = new ArrayList<ModelExtra>();
+
 		currentItem = new ModelLaundryItem(-1, "");
-		itemList = getExtraModel();
-		ArrayAdapter<ModelLaundryItem> receiptAdapter = new ReceiptListAdapter(
-				this, receipt.getAllItem());
+
+		receiptAdapter = new ReceiptListAdapter(this, receipt.getAllItem());
 		receiptListView.setAdapter(receiptAdapter);
+		receiptAdapter.notifyDataSetChanged();
 
 	}
 
@@ -242,7 +242,7 @@ public class MainActivity_POS extends Activity {
 
 		this.itemSelected = false;
 		System.out.println("Clicked Ladies");
-		this.selectedTab = LADIES_TAB;
+		selectedTab = LADIES_TAB;
 
 		commonAPI.setActivateVal(view, R.id.ladiesTab, true);
 		commonAPI.setActivateVal(view, R.id.menTab, false);
@@ -591,13 +591,12 @@ public class MainActivity_POS extends Activity {
 
 	public void selectItem(View view) {
 		itemSelected = true;
-		prevItem = currentItem;
-		if (prevItem != null) {
-		
-		
-		prevItem.setAllNotSel();
-		
-		}
+		// prevItem = currentItem;
+		// if (prevItem != null) {
+		//
+		// prevItem.setAllNotSel();
+		//
+		// }
 		if (selectedTab == LADIES_TAB) {
 			for (int i = 0; i < ladiesArray.size(); i++) {
 				ModelLaundryItem aItem = ladiesArray.get(i);
@@ -694,7 +693,7 @@ public class MainActivity_POS extends Activity {
 	}
 
 	public void selectMen(View view) {
-	
+
 		itemSelected = false;
 		System.out.println("Clicked GentleMen");
 		selectedTab = MEN_TAB;
@@ -736,8 +735,6 @@ public class MainActivity_POS extends Activity {
 		}
 
 		else {
-
-			itemTrackText.setText("Select an Item First");
 
 		}
 	}
@@ -824,7 +821,8 @@ public class MainActivity_POS extends Activity {
 
 	//
 	public void setAdapterForExtraLists(ModelLaundryItem aItem) {
-
+		itemTrackText = (EditText) findViewById(R.id.trackText); // trackText
+		itemTrackText.setText(aItem.itemName);
 		fragment.modifySizeArray(aItem.getSizeArr(), aItem.getMaterialArr(),
 				aItem.getAddOnArr(), aItem.getOtherArr());
 
@@ -844,25 +842,23 @@ public class MainActivity_POS extends Activity {
 
 	public void deleteCurrentItem(View view) {
 		currentItem = new ModelLaundryItem(-1, "");
-		
 
 	}
 
 	public void addItemToReceipt(View view) {
 
 		ModelLaundryItem aTempItem = currentItem;
-		if(currentItem.itemName != "") {
-		
-		receipt.addItemToReceipt(aTempItem);
-		ArrayAdapter<ModelLaundryItem> receiptAdapter = new ReceiptListAdapter(
-				this, receipt.getAllItem());
-		receiptListView.setAdapter(receiptAdapter);
-		
+		if (currentItem.itemName != "") {
+
+			receipt.addItemToRec(aTempItem);
+			ArrayAdapter<ModelLaundryItem> receiptAdapter1 = new ReceiptListAdapter(
+					this, receipt.getAllItem());
+			receiptListView.setAdapter(receiptAdapter1);
+			receiptAdapter.notifyDataSetChanged();
+
 		}
 		currentItem = new ModelLaundryItem(-1, "");
 	}
-
-
 
 	class MyTouchListener implements OnTouchListener {
 		@Override
@@ -892,11 +888,9 @@ public class MainActivity_POS extends Activity {
 			return true;
 		}
 	}
-	
-	public void  setAllExtraNotSel() {
-		
-		
-		
+
+	public void setAllExtraNotSel() {
+
 	}
 
 }
